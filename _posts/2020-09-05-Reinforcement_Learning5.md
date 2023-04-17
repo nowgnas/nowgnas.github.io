@@ -62,7 +62,7 @@ mermaid: true
 - z<sub>t</sub>가 forget과 input 게이트를 모두 제어한다.
   - z<sub>t</sub>가 1일때 forget 게이트가 열리고, 0일때 input 게이트가 열린다.
 - output게이트가 없으며, 이전 hidden cell에서 어느 부분이 출력될지 결정하는 것은 r<sub>t</sub>가 수행한다.
-  ![gru](/assets/img/LSTM_GRU/gru.png)
+  ![gru](/assets/img/LSTM_GRU/GRU.png)
 
 ### Reset Gate
 
