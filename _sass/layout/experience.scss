@@ -1,0 +1,58 @@
+.mainDiv {
+  height: min-content;
+
+  .experienceSet {
+    display: flex;
+    flex-direction: row;
+
+    .date {
+      width: 27%;
+      border-bottom: 1px solid rgb(218, 216, 216);
+
+      .dateDiv {
+        margin-left: 10px;
+        margin-top: 3px;
+
+        .text {
+          font-size: 0.8em;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .line {
+      width: 5px;
+      border-right: 0.8px solid rgb(218, 216, 216);
+    }
+
+    .content {
+      width: 80%;
+      margin-left: 5px;
+      border-bottom: 1px solid rgb(218, 216, 216);
+
+      .conntentDiv {
+        margin-left: 15px;
+        margin-top: 3px;
+
+        .contentTitle {
+          font-size: 1em;
+        }
+
+        .contentDescription {
+          font-size: 0.8em;
+        }
+
+        .contentUrl {
+          font-size: 0.65em;
+          margin-left: 7px;
+          font-weight: bold;
+        }
+
+        .url {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+    }
+  }
+}

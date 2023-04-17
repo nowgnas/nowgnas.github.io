@@ -1,0 +1,17 @@
+{% for project in site.project %}
+<sub>{{ project.start }} ~ {{ project.end }}</sub>
+<h3 class="experience_name">{{ project.name }}</h3>
+<div class="oneline">
+    {% if project.url %}
+    <p class="experience_site"><a href="{{ project.url }}">{{ project.urlName }}</a></p> 
+    {% endif %}
+    {% if project.file %}
+    <p class="experience_site"><a href="{{ project.file }}">{{ project.fileName }}</a></p>
+    {% endif %}
+    {% if project.award %}
+    <p class="experience_site"><a href="{{ project.award }}">{{ project.awardName }}</a></p>
+    {% endif %}
+</div>
+
+<hr class="hr">
+{% endfor %}

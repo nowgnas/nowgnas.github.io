@@ -1,0 +1,32 @@
+{% for ex in site.experience %}
+<div class="mainDiv">
+  <div class="experienceSet">
+    <div class="date">
+      <div class="dateDiv">
+        <div class="text">{{ ex.start }} ~ {{ ex.end }}</div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="content">
+      <div class="conntentDiv">
+        <div><b class="contentTitle">{{ ex.name }}</b></div>
+        <ul>
+          {% for des in ex.description %}
+          <li class="contentDescription">{{ des }}</li>
+          {% endfor %}
+        </ul>
+
+        <div class="url">
+          {% for urls in ex.url %}
+          <p>
+            <a class="contentUrl" href="{{ urls.link }}"
+              >🌐{{ urls.linkName }}</a
+            >
+          </p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}

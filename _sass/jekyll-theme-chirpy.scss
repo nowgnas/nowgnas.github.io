@@ -6,19 +6,7 @@
  * MIT Licensed
  */
 
-@import
-  "colors/light-typography",
-  "colors/dark-typography",
-
-  "addon/module",
-  "addon/variables",
-  "variables-hook",
-  "addon/syntax",
-  "addon/commons",
-
-  "layout/home",
-  "layout/post",
-  "layout/tags",
-  "layout/archives",
-  "layout/categories",
-  "layout/category-tag";
+@import 'colors/light-typography', 'colors/dark-typography', 'addon/module',
+  'addon/variables', 'variables-hook', 'addon/syntax', 'addon/commons',
+  'layout/home', 'layout/post', 'layout/tags', 'layout/archives',
+  'layout/categories', 'layout/experience', 'layout/category-tag';
