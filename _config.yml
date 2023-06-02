@@ -13,47 +13,45 @@ baseurl: ""
 lang: en
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Shanghai
+timezone: Asia/Seoul
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: marshmel.log # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the sub-title
+tagline: 지식을 공유하며 성장하는 개발자입니다. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
-
+  sangwon's Tech blog
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ""
+url: "https://nowgnas.github.io"
 
 github:
-  username: github_username # change to your github username
+  username: nowgnas # change to your github username
 
-twitter:
-  username: twitter_username # change to your twitter username
+instagram:
+  username: s.wlli # change to your twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  name: Sangwon Lee
+  email: swlee0376@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your twitter homepage
-    - https://github.com/username # change to your github homepage
+    - https://github.com/nowgnas # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification: # fill in to your verification string
+google_site_verification: google_meta_tag_verification # fill in to your verification string
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id: # fill in your Google Analytics ID
+  id: "G-JKD471NN91" # fill in your Google Analytics ID
   # Google Analytics pageviews report settings
   pv:
     proxy_endpoint: # fill in the Google Analytics superProxy endpoint of Google App Engine
@@ -70,17 +68,17 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode: # [light|dark]
+theme_mode: light # [light|dark]
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: "https://chirpy-img.netlify.app"
+img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "/commons/avatar.jpg"
+avatar: /assets/img/profiles1.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true
@@ -92,8 +90,8 @@ comments:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
   utterances:
-    repo: # <gh-username>/<repo>
-    issue_term: # < url | pathname | title | ...>
+    repo: "nowgnas/nowgnas.BLOGComments" # <gh-username>/<repo>
+    issue_term: "pathname" # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
     repo: # <gh-username>/<repo>
@@ -197,3 +195,142 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+experience:
+  - name: 랜드마크 정보 제공 웹 서비스
+    start: 2022-05-31
+    end: 2022-07-02
+    description:
+      - NestJS의 auth guard를 사용한 사용자 로그인 인증
+      - 개발 기간 중 제공된 vm에 Docker를 사용한 동작 가능한 api 제공
+    url:
+      - link: https://github.com/nowgnas/landmark-service
+        linkName: 랜드마크 정보 제공 웹 서비스
+
+  - name: 보드게임 추천 웹 서비스
+    start: 2022-04-19
+    end: 2022-05-07
+    description:
+      - 페이지에서 사용자 로그인 인증에 refresh token 도입
+      - 데이터베이스 조회 시 코드 중복을 피하기 위해 동일한 동작은 함수로 구현해 재사용성을 높임
+      - 데이터 조회 시 연관된 정보를 불러올 때 데이터베이스 접근 횟수를 줄이기 위해 mongoDB의 쿼리 사용
+      - 프로젝트의 README에 프로젝트의 목표, 서비스 동작 방식, 구조 등을 쉽게 알 수 있도록 상세하게 작성
+      - 보드게임의 설명을 이용해 보드게임의 특징을 나타낼 수 있는 word cloud 생성
+      - 엘리스 AI트랙 4기 2차 프로젝트에서 4위의 성적을 달성
+    url:
+      - link: https://github.com/nowgnas/board-game-service
+        linkName: 보드게임 추천 웹 서비스 github
+
+  - name: 엘리스 AI 트랙 4기
+    start: 2022-01-10
+    end: 2022-07-02
+    description:
+      - 엘리스 AI 트랙 4기 수료
+    url:
+      - link: /files/elice/elice_4th_track.pdf
+        linkName: 엘리스 AI 트랙 4기 수료증
+
+  - name: IPG Autonomous Driving Software Challenge(ADSC)
+    start: 2021-08-27
+    end: 2021-11-30
+    description:
+      - 인천대학교에서 열린 IPG ADSC에 참여해 장려상 수상
+      - IPG사의 CarMaker 툴을 사용하여 자율주행 시뮬레이션 과제 수행
+    url:
+      - link: /files/adsc/ipg_certificate.pdf
+        linkName: Carmaker Certificate
+
+  - name: 제33회 한글 및 한국어 정보처리 학술대회 (HCLT 2021)
+    start: 2021-08-10
+    end: 2021-10-14
+    description:
+      - 한국어 뉴스 헤드라인 토픽 분류에서 한국어 large-scale 모델들의 비교 분석
+      - 네 가지의 한국어 large-scale 모델을 비교
+    url:
+      - link: /files/hclt2021_submit.pdf
+        linkName: HCLT 2021
+
+  - name: TAVE 8th Management Team
+    start: 2021-07-20
+    end: 2022-01-15
+    description:
+      - TAVE 동아리 8기 운영진 활동
+    url:
+      - link: /files/introduce8th.pdf
+        linkName: 8기 운영진 소개
+
+  - name: Dacon 뉴스 토픽 분류 AI 경진대회
+    start: 2021-07-07
+    end: 2021-08-09
+    description:
+      - KoBERT를 사용한 7가지 뉴스 토픽 분류
+      - 최종 결과 상위 5% 달성
+    url:
+      - link: https://dacon.io/competitions/official/235747/overview/description
+        linkName: Dacon leaderboard
+      - link: https://github.com/TAVEResearch/Korean_large-scale_model/tree/main/Dacon_News_Classification
+        linkName: Dacon code
+
+  - name: 2021 금융보안원 대학생 금융보안캠프
+    start: 2021-05-24
+    end: 2021-07-09
+    description:
+      - 차세대 금융 서비스 아이디어 경진대회 참여
+      - 연합학습을 통한 개인화된 추천 서비스 아이디어 제시
+      - 최우수상 수상
+    url:
+      - link: /files/FSIpresentation.pdf
+        linkName: 발표 ppt
+      - link: https://www.dailysecu.com/news/articleView.html?idxno=126492
+        linkName: news
+      - link: /files/FSIprize.pdf
+        linkName: Prize
+      - link: /files/FSIcertificate.pdf
+        linkName: Certificate
+
+  - name: TAVE 7th Management Team
+    start: 2021-02-06
+    end: 2021-07-17
+    description:
+      - TAVE 동아리 7기 운영진 활동
+    url:
+      - link: https://drive.google.com/file/d/1qWK_p_x2mShFTjfpjCcpQD2xKcYSzGpD/view
+        linkName: 7기 모집 책자
+
+  - name: TAVE Research Member
+    start: 2020-12-20
+    end: now
+    url:
+      - link: https://taveresearch.github.io/about/
+        linkName: Tave research blog
+      - link: https://github.com/TAVEResearch/machine_learning
+        linkName: 머신러닝 스터디
+    description:
+      - TAVE 동아리 소규모 연구 그룹 멤버 활동
+      - 머신러닝 스터디 진행
+      - Dacon 뉴스 토픽 분류 AI 경진대회 참여 TAVE_NLP 팀(11위)
+      - 제33회 한글 및 한국어 정보처리 학술대회 (HCLT 2021) 논문 게재
+      - 2021 서울시 빅데이터 캠퍼스 공모전 참여
+
+  - name: 제32회 한글 및 한국어 정보처리 학술대회 (HCLT 2020)
+    start: 2020-08-13
+    end: 2020-10-08
+    description:
+      - 7가지 한국어 감성분석에서 클래스 불균형과 손실 스파이크 문제 해결 방법 제시
+    url:
+      - link: /files/paper_submited.pdf
+        linkName: HCLT 2020
+      - link: https://www.youtube.com/watch?v=gIhNBtruUYM&t=13s
+        linkName: 국어 정보처리 경진대회 제출 영상
+
+  - name: TAVE 6th Member
+    start: 2020-08-01
+    end: 2020-11-28
+    url:
+      - link: https://blog.naver.com/t-ave
+        linkName: TAVE blog
+    description:
+      - TAVE 동아리 6기 회원 활동
+      - KMOOC 문일철 교수 인공지능 및 기계학습 개론I, II 수료
+      - 국어 정보처리 경진대회 참여
+      - 제32회 한글 및 한국어 정보처리 학술대회 (HCLT 2020) 논문 게재
