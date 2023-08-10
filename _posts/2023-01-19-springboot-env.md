@@ -1,10 +1,10 @@
 ---
 title: spring boot profile 환경변수 분할 적용
-categories: spring boot
+categories: spring-boot
 date: 2023-01-18 23:20 +0900
 description: spring boot에서 yml 파일로 환경에 따른 설정 파일 적용하기
 lastmod: 2023-01-18 23:20 +0900
-tags: env profile spring boot
+tags: [env, profile, spring-boot]
 ---
 
 ## 환경에 따른 설정 파일 분할 적용?
