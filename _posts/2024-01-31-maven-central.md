@@ -21,6 +21,7 @@ MSA 환경에서는 DTO(Data Transfer Object)를 공유하게 되는 경우가 �
 ## Maven central 저장소 올리기
 
 maven repository를 생성하기 위해 먼저 Jira 이슈를 생성해야 한다. [sonatype](https://issues.sonatype.org/secure/Dashboard.jspa) 에 접속하여 시작한다.
+
 ![Screenshot 2023-12-10 at 03 55 57](https://github.com/nowgnas/nowgnas.github.io/assets/55802893/23d77f84-03f9-4d50-b9f6-bf18156178f2)
 
 위 이미지는 sonatype jira 페이지의 상단의 내용이다. OSSRH와 maven central을 위한 jira라고 한다.
@@ -30,18 +31,19 @@ maven repository를 생성하기 위해 먼저 Jira 이슈를 생성해야 한�
 
 - 요약: jira title
 - 설명: 간단한 설명
-- Group Id: io.github.<프로젝트 주소 도메인>
+- Group Id: io.github.\<프로젝트 주소 도메인\>
 - project url: github repo url을 작성했다
 - scm url: 코드가 관리될 repo
 - username: 사용자 이름
-  위 정보를 입력하여 생성해주면 된다.
-  몇 분 뒤 jira의 봇이 답변을 해준다. 답변을 잘 읽고 시키는 것을 따라하면 된다. 보통 이슈 번호에 맞는 repo를 생성하거나 group id를 수정하라고 한다.
-  ![Screenshot 2023-12-10 at 04 04 42](https://github.com/nowgnas/nowgnas.github.io/assets/55802893/5e622cb0-c2ec-41bc-88a0-7e861f0b319f)
 
-  repo를 생성하고 시키는 것을 완료하면 답변을 남겨준다. 답변은 아무렇게나 해도 괜찮은것 같다.
-  ![Screenshot 2023-12-10 at 04 05 53](https://github.com/nowgnas/nowgnas.github.io/assets/55802893/aba7e483-83c9-4d11-90e4-19d945d216b8)
+위 정보를 입력하여 생성해주면 된다.
+몇 분 뒤 jira의 봇이 답변을 해준다. 답변을 잘 읽고 시키는 것을 따라하면 된다. 보통 이슈 번호에 맞는 repo를 생성하거나 group id를 수정하라고 한다.
+![Screenshot 2023-12-10 at 04 04 42](https://github.com/nowgnas/nowgnas.github.io/assets/55802893/5e622cb0-c2ec-41bc-88a0-7e861f0b319f)
 
-  시키는 것을 잘 하면 위와 같이 축하와 함께 maven central에 릴리즈 할 수 있도록 공식 문서로 안내해준다. 이제 gradle 프로젝트를 생성하고 배포하면 된다.
+repo를 생성하고 시키는 것을 완료하면 답변을 남겨준다. 답변은 아무렇게나 해도 괜찮은것 같다.
+![Screenshot 2023-12-10 at 04 05 53](https://github.com/nowgnas/nowgnas.github.io/assets/55802893/aba7e483-83c9-4d11-90e4-19d945d216b8)
+
+시키는 것을 잘 하면 위와 같이 축하와 함께 maven central에 릴리즈 할 수 있도록 공식 문서로 안내해준다. 이제 gradle 프로젝트를 생성하고 배포하면 된다.
 
 ## Gradle 프로젝트 생성하기
 
@@ -51,10 +53,14 @@ intellij 에서 new project 선택 후 build system을 gradle로 설정하여 �
 ![img2](https://github.com/nowgnas/nowgnas.github.io/assets/55802893/bfd1b6d1-a561-467b-bfb8-c9f67be3fba4)
 
 build.gradle로 빌드 후 publish 하게 된다. 배포하기 위해 필요한 파일을 만들어줘야 한다.
-`publish-maven.gradle`
-`local.properties` (add gitignore)
-`publish.gradle`
-[전체 프로젝트는 여기서 확인](https://github.com/lotteon2/BB-COMMON-REPOSITORY)
+
+```shell
+publish-maven.gradle
+local.properties (add gitignore)
+publish.gradle
+```
+
+[전체프로젝트](https://github.com/lotteon2/BB-COMMON-REPOSITORY)
 
 ### publish.gradle
 
