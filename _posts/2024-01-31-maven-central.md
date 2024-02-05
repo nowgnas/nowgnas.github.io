@@ -1,6 +1,5 @@
 ---
 title: "[MSA 4] Maven Repository로 MSA 환경에서 DTO 공유하기(maven central)"
-author: sangwon
 description: nexus repository로 maven central에 공통 코드 등록하여 msa환경에서 코드 공유하기
 date: 2024-01-31 10:38 +0900
 lastmod: 2024-01-31 10:38 +0900
