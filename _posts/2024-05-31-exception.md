@@ -6,7 +6,7 @@ date: 2024-05-25 14:33 +0900
 lastmod: 2024-05-25 14:33 +0900
 tags:
   - exception
-  - effective java
+  - effective-java
   - java
   - spring
 ---

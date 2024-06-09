@@ -1,7 +1,7 @@
 ---
 title: "[Effective Java] 싱글턴과 빌더 패턴"
 date: 2023-08-05 15:48:52
-tags: [builder, lotteon, singleton, 롯데e커머스, 비트컴퓨터]
+tags: [builder, lotteon, singleton, 롯데e커머스, 비트컴퓨터, effective-java]
 categories: api
 description: Effective Java를 읽으며 정리한 내용입니다.
 ---
