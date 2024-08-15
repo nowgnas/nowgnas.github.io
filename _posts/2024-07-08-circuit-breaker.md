@@ -104,7 +104,7 @@ open feign의 configuration은 application.yml에서 설정이 가능하다. 기
 
 ## Circuit Breaker 패턴
 
-![Pasted image 20240707152713](https://github.com/nowgnas/tech-test-bed/assets/55802893/ec886c56-e4ee-418e-bd17-08c1beb26006)
+![Pasted image 20240707152713](/assets/img/posts/circuit_breaker/circuit_breaker.png)
 Circuit breaker 패턴은 세 가지 일반 상태와 두 가지 특수 상태를 가진다. 호출 결과를 집계하여 circuit breaker를 제어한다. 집계를 위해 sliding window를 사용하고 이는 count based와 time based가 있다.
 
 ### Count based
