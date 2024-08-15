@@ -7,4 +7,6 @@ User-agent: *
 
 Disallow: /norobots/
 
+Allow: /pagead/managed/js/adsense/
+
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
