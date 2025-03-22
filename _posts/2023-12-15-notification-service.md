@@ -94,6 +94,7 @@ sqs listener는 위와 같다. `spring-cloud-aws-messaging` 패키지에 있는 
 #### 메세지 전송하기
 
 이 프로젝트에서는 구매자에게는 SSE, SMS를 전송하고 가게 사장과 시스템 관리자에게는 SSE를 전송한다. SSE와 SMS로 전달되는 데이터는 동일했기 때문에 `publish` 메서드를 가진 인터페이스를 두고 SendSMS, SendSSE 클래스가 상속받는 방법을 사용했다.
+
 ![Screenshot 2023-12-15 at 00 00 22](https://github.com/lotteon2/lotteon2.github.io/assets/55802893/bb4fdf22-976a-4a2d-b569-d506c02b7516)
 
 ```java
