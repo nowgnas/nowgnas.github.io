@@ -4,7 +4,7 @@ description: spring cloud로 MSA 아키텍처를 구성해본다
 date: 2023-11-14 23:03 +0900
 lastmod: 2023-11-14 23:03 +0900
 categories: msa
-tags: kafka, msa, spring cloud
+tags: [kafka, msa, spring-cloud]
 ---
 
 ## MSA 아키텍처로 설계하기

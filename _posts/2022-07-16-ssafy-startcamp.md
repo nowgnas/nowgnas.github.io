@@ -4,7 +4,7 @@ categories: java
 date: 2022-07-16 16:13 +0900
 description: m1에서 JDK 설치와 STS 3에서 프로젝트 실행하기
 lastmod: 2022-07-16 16:13 +0900
-tags: eclipse java spring
+tags: [eclipse, java, spring]
 ---
 
 ## STS 3 설치하기

@@ -23,7 +23,7 @@ title: marshmel.log # the main title
 tagline: 지식을 공유하며 성장하는 개발자입니다. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  sangwon's Tech blog
+  Sangwon Lee의 기술 블로그. Java, Spring, MSA, Kafka, 알고리즘 등 백엔드 개발 지식을 공유합니다.
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://nowgnas.github.io"
 
@@ -45,7 +45,7 @@ social:
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification: google_meta_tag_verification # fill in to your verification string
+google_site_verification: 163033503fee2eac # Google Search Console verification
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings

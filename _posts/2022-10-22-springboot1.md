@@ -4,7 +4,7 @@ categories: spring-boot
 date: 2022-10-22 13:00 +0900
 description: spring boot와 react를 사용한 웹 서비스 개발
 lastmod: 2022-10-22 13:00 +0900
-tags: java react spring-boot swagger web
+tags: [java, react, spring-boot, swagger, web]
 ---
 
 Spring boot 와 react를 사용하여 웹 서비스를 개발해 보려고 한다. spring boot에 관견된 내용은 스프링 부트 핵심 가이드 책을 참고하였다.

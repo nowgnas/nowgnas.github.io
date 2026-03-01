@@ -8,7 +8,7 @@ categories:
 tags:
   - cache
   - redis
-  -
+
 ---
 
 온라인 쇼핑몰에서 상품 리스트에서 이런 문구를 볼 수 있다

@@ -4,7 +4,7 @@ categories: spring
 date: 2022-10-17 23:20 +0900
 description: spring에서 DI와 AOP에 대해 알아본다
 lastmod: 2022-10-17 23:20 +0900
-tags: aop di java spring
+tags: [aop, di, java, spring]
 ---
 
 ## Spring Framework

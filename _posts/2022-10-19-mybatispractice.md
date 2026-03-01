@@ -4,7 +4,7 @@ categories: spring
 date: 2022-10-18 18:37 +0900
 description: mybatis를 사용한 spring legacy project 구조를 알아본다
 lastmod: 2022-10-18 18:37 +0900
-tags: java mvc mybatis spring sts
+tags: [java, mvc, mybatis, spring, sts]
 ---
 
 이번 포스팅에서는 sts3에서 Spring Legacy Project를 생성하고 웹 페이지에서 사용자 회원가입, 로그인을 mybatis를 이용해 구현한다.

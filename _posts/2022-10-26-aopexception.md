@@ -4,7 +4,7 @@ categories: spring-boot
 date: 2022-10-26 20:23 +0900
 description: AOP를 이용해서 예외처리를 사용자가 정의하여 분리한다
 lastmod: 2022-10-26 20:23 +0900
-tags: spring-boot aop exception java
+tags: [spring-boot, aop, exception, java]
 ---
 
 ## AOP (Aspect Oriented Programming)

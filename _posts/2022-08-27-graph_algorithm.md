@@ -4,7 +4,7 @@ categories: algorithm
 date: 2022-08-27 14:56 +0900
 description: 프림, 크루스칼, 다익스트라 알고리즘을 자바로 구현해보자
 lastmod: 2022-08-27 14:56 +0900
-tags: algorithm dijkstra java kruskal prim
+tags: [algorithm, dijkstra, java, kruskal, prim]
 ---
 
 # Prim 알고리즘

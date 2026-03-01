@@ -4,7 +4,7 @@ categories: spring-boot
 date: 2022-10-31 23:50 +0900
 description: spring boot로 웹 페이지의 동기와 비동기 동작의 차이를 알아본다
 lastmod: 2022-10-31 23:50 +0900
-tags: web async spring-boot sync
+tags: [web, async, spring-boot, sync]
 ---
 
 웹 페이지에서는 동기적 동작과 비동기적 동작이 발생할 수 있다. 이번 포스팅에서는 spring boot를 이용해 동기와 비동기 동작에 대해 알아본다.

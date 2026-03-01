@@ -4,7 +4,7 @@ description: SQS를 이용해 알림 시스템을 설계 한다.
 date: 2023-12-15 01:10 +0900
 lastmod: 2023-12-15 01:10 +0900
 categories: msa
-tags: sqs, notification, sse, sms
+tags: [sqs, notification, sse, sms]
 ---
 
 프로젝트를 설계할 때는 알림 시스템을 간단하게 생각하고 설계했었다. 하지만 알림을 구현하기 시작하면서 재 설계의 필요성을 느꼈다.
