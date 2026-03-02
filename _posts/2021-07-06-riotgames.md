@@ -1,6 +1,7 @@
 ---
 title: Riot games coding webinar
 date: 2021-07-06
+description: "라이엇 게임즈 코딩 웨비나에서 다룬 Git과 GitHub의 기초 개념, 버전 관리 시스템의 필요성, 코드 리뷰 방법과 브랜치 전략을 정리합니다."
 categories: [교육]
 tags: [webinar, git, code review]
 mermaid: true

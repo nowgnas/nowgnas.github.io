@@ -10,7 +10,7 @@ baseurl: ""
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en
+lang: ko-KR
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
 timezone: Asia/Seoul
@@ -79,6 +79,9 @@ img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: /assets/img/profiles1.png
+
+# Default social preview image for posts without an image
+image: /assets/img/profiles1.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true

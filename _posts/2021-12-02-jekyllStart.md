@@ -1,6 +1,7 @@
 ---
 title: 간단하게 jekyll 블로그 빌드하기
 date: 2021-12-02 12:38 +0900
+description: "WSL2 환경에서 Jekyll 블로그를 빠르게 빌드하는 방법을 정리합니다. Ruby 설치부터 jekyll bundler 설치, 로컬 서버 테스트까지 간결하게 설명합니다."
 lastmod: 2021-12-02 12:38 +0900
 categories: [blog]
 tags: [jekyll, blog]

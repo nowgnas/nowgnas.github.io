@@ -1,6 +1,7 @@
 ---
 title: Python 함수 및 속성 정리
 date: 2021-09-16 13:02 +0900
+description: "파이썬과 TensorFlow에서 자주 사용되는 함수와 속성을 정리한 레퍼런스 포스트입니다. numpy의 unique, where, setdiff1d, argparse, axis 연산, list extend 등을 다룹니다."
 categories: [python]
 tags: [python, function]
 lastmod: 2021-09-30 13:21 +0900
