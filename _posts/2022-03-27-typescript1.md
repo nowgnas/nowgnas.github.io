@@ -3,7 +3,8 @@ title: Typescript 시작하기
 description: typescript를 시작해보자
 date: 2022-03-27 23:58 +0900
 lastmod: 2022-03-27 23:58 +0900
-categories: [web]
+categories:
+  - web
 tags: [typesctipt, web]
 mermaid: true
 ---

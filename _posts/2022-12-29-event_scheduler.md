@@ -1,6 +1,7 @@
 ---
 title: MYSQL event scheduler로 데이터 조작하기
-categories: database
+categories:
+  - database
 date: 2022-12-29 12:55 +0900
 description: mysql에서 event scheduler를 사용해보자
 lastmod: 2022-12-29 12:55 +0900

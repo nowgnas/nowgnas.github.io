@@ -3,7 +3,8 @@ title: "[MSA 1] spring cloud로 프로젝트 초기 세팅하기"
 description: spring cloud로 MSA 아키텍처를 구성해본다
 date: 2023-11-14 23:03 +0900
 lastmod: 2023-11-14 23:03 +0900
-categories: msa
+categories:
+  - msa
 tags: [kafka, msa, spring-cloud]
 ---
 

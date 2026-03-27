@@ -3,7 +3,8 @@ title: 백엔드 3계층 구조로 구현한 프로젝트 템플릿
 description: backend 3 layer project
 date: 2022-03-15 01:08 +0900
 lastmod: 2022-03-15 01:08 +0900
-categories: [web]
+categories:
+  - web
 tags: [elice, web, react js, node js]
 mermaid: true
 ---

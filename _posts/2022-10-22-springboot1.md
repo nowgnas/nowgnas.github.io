@@ -1,6 +1,7 @@
 ---
 title: spring boot와 react를 사용해 웹 서비스 개발하기
-categories: spring-boot
+categories:
+  - spring-boot
 date: 2022-10-22 13:00 +0900
 description: spring boot와 react를 사용한 웹 서비스 개발
 lastmod: 2022-10-22 13:00 +0900

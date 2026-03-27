@@ -3,7 +3,8 @@ title: "[DDD] 도메인 모델과 바운디드 컨텍스트"
 description: "도메인 모델과 바운디드 컨텍스트에 대해 이해한다. MSA환경에서의 바운디드 컨텍스트에 대해서도 다룬다."
 date: 2024-09-01 15:50 +0900
 lastmod: 2024-09-01 15:50 +0900
-categories: architecture
+categories:
+  - architecture
 tags:
   - msa
   - ddd

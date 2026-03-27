@@ -3,7 +3,8 @@ title: "[MSA 3] Custom annotation과 AOP를 이용한 멱등성을 보장하는 
 description: custom annotation과 aop를 사용한 알림 중복 전송 방지 구현
 date: 2024-01-26 11:25 +0900
 lastmod: 2024-01-26 11:25 +0900
-categories: msa
+categories:
+  - msa
 tags:
   - eks
   - aop

@@ -1,5 +1,6 @@
 ---
-categories: exception
+categories:
+  - exception
 title: "[Effective Java] 예외를 예외답게 사용하기"
 description: effective java의 예외처리에 대한 내용을 정리하였습니다.
 date: 2024-05-25 14:33 +0900

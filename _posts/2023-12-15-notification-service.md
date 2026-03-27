@@ -3,7 +3,8 @@ title: "[MSA 2] AWS SQS를 이용한 알림 시스템 설계 및 구현"
 description: SQS를 이용해 알림 시스템을 설계 한다.
 date: 2023-12-15 01:10 +0900
 lastmod: 2023-12-15 01:10 +0900
-categories: msa
+categories:
+  - msa
 tags: [sqs, notification, sse, sms]
 ---
 

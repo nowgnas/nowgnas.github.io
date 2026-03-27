@@ -1,6 +1,7 @@
 ---
 title: 너무 헷갈리는 동기와 비동기 알아보기
-categories: spring-boot
+categories:
+  - spring-boot
 date: 2022-10-31 23:50 +0900
 description: spring boot로 웹 페이지의 동기와 비동기 동작의 차이를 알아본다
 lastmod: 2022-10-31 23:50 +0900

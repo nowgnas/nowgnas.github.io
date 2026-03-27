@@ -1,8 +1,10 @@
 ---
 title: Jekyll Blog 테마 적용하기(Chirpy theme)
 date: 2021-07-05
+lastmod: 2021-07-05
 description: "Jekyll Chirpy 테마를 GitHub Pages에 적용하는 방법을 단계별로 정리합니다. 리포지토리 생성부터 배포까지의 과정을 설명합니다."
-categories: [blog]
+categories:
+  - blog
 tags: [jekyll, blog]
 mermaid: true
 ---

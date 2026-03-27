@@ -4,9 +4,14 @@ permalink: /robots.txt
 ---
 
 User-agent: *
-
 Disallow: /norobots/
+Disallow: /assets/js/dist/
+Allow: /
 
-Allow: /pagead/managed/js/adsense/
+User-agent: Googlebot
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}

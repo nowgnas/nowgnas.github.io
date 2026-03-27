@@ -6,7 +6,8 @@ tags:
   - msa
   - open feign
   - fault tolerance
-categories: msa
+categories:
+  - msa
 description: 대규모 트래픽을 고려한 장애 허용
 ---
 

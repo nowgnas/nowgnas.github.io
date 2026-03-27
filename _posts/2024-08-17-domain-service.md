@@ -3,7 +3,8 @@ title: "[DDD] 도메인 서비스"
 description: 도메인 서비스를 이용한 여러 애그리거트 연산하기
 date: 2024-08-17 14:38 +0900
 lastmod: 2024-08-17 14:38 +0900
-categories: architecture
+categories:
+  - architecture
 tags:
   - msa
   - ddd

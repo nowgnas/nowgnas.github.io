@@ -1,6 +1,7 @@
 ---
 title: mybatis를 이용한 spring legacy project 구조를 알아보자
-categories: spring
+categories:
+  - spring
 date: 2022-10-18 18:37 +0900
 description: mybatis를 사용한 spring legacy project 구조를 알아본다
 lastmod: 2022-10-18 18:37 +0900

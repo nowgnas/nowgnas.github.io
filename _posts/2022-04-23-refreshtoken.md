@@ -3,7 +3,8 @@ title: Refresh Token이란??
 description: access token과 refresh token을 사용해보자
 date: 2022-04-23 02:51 +0900
 lastmod: 2022-04-23 02:51 +0900
-categories: [web]
+categories:
+  - web
 tags: [web, token, refresh token, access token]
 mermaid: true
 ---

@@ -7,7 +7,8 @@ tags:
   - msa
   - ddd
   - aggregate
-categories: architecture
+categories:
+  - architecture
 ---
 
 [이전 글](https://nowgnas.github.io/posts/domain/)에서 도메인 모델과 도메인 주도 개발을 위한 아키텍처를 알아봤다. 이번 글에서는 도메인 모델을 잘 이해할 수 있도록 만들어주는 aggregate(애그리거트)에 대해 알아본다.

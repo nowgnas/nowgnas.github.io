@@ -3,7 +3,8 @@ title: async와 await
 description: async와 await, promise
 date: 2022-03-13 18:25 +0900
 lastmod: 2022-03-13 18:25 +0900
-categories: [web]
+categories:
+  - web
 tags: [elice, web, node js, backend, async, promise]
 mermaid: true
 ---

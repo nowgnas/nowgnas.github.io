@@ -1,6 +1,7 @@
 ---
 title: JDK 설치와 Sprint Tool Suite 시작하기
-categories: java
+categories:
+  - java
 date: 2022-07-16 16:13 +0900
 description: m1에서 JDK 설치와 STS 3에서 프로젝트 실행하기
 lastmod: 2022-07-16 16:13 +0900

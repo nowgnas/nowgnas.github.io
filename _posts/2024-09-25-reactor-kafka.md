@@ -3,7 +3,8 @@ title: "Reactor Kafka를 이용한 비동기 메시지 처리"
 description: "reactor kafka produce와 consumer에 대해 간단한 예시를 알아본다."
 date: 2024-09-25 23:55 +0900
 lastmod: 2024-09-25 23:55 +0900
-categories: reactor
+categories:
+  - reactor
 tags:
   - reactor kafka
   - project reactor

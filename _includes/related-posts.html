@@ -31,7 +31,11 @@ i in (0..last_index) %} {% assign post = site.posts[i] %} {% if post.url !=
 page.url %} {% capture cur_index %}{{ i }}{% endcapture %} {% unless index_list
 contains cur_index %} {% assign index_list = index_list | push: cur_index %} {%
 assign less = less | minus: 1 %} {% if less <= 0 %} {% break %} {% endif %} {%
-endunless %} {% endif %} {% endfor %} {% endif %} {% if index_list.size > 0 %}
+endunless %} {% endif %} {% endfor %} {% endif %}
+
+{% include ads/multiplex.html %}
+
+{% if index_list.size > 0 %}
 <div id="related-posts" class="mb-2 mb-sm-4">
   <h3 class="pt-2 mb-4 ms-1" data-toc-skip>
     {{ site.data.locales[include.lang].post.relate_posts }}

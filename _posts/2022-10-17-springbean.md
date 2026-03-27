@@ -1,6 +1,7 @@
 ---
 title: Spring Framework 파헤쳐보기
-categories: spring
+categories:
+  - spring
 date: 2022-10-17 23:20 +0900
 description: spring에서 DI와 AOP에 대해 알아본다
 lastmod: 2022-10-17 23:20 +0900

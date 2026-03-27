@@ -1,6 +1,7 @@
 ---
 title: 사용자 정보 암호화 하기 (with java)
-categories: java
+categories:
+  - java
 date: 2022-10-09 16:21 +0900
 description: 자바에서 암호화 알고리즘 사용에 대해 알아본다
 lastmod: 2022-10-09 16:21 +0900

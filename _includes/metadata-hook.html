@@ -1,1 +1,97 @@
-<!-- A placeholder to allow defining custom metadata -->
+<!-- Structured Data: BlogPosting Schema -->
+{% if page.layout == 'post' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | strip_html | truncate: 160 | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.lastmod | default: page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.social.name }}",
+    "url": "{{ site.social.links[0] }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ '/assets/img/favicons/favicon-96x96.png' | absolute_url }}"
+    }
+  },
+  "wordCount": "{{ page.content | number_of_words }}",
+  "inLanguage": "{{ site.lang | default: 'ko-KR' }}"
+  {% if page.image %},
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.image.path | default: page.image | absolute_url }}"
+  }
+  {% elsif site.image %},
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ site.image | absolute_url }}"
+  }
+  {% endif %}
+  {% if page.tags.size > 0 %},
+  "keywords": {{ page.tags | jsonify }}
+  {% endif %}
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}"
+    }
+    {% for category in page.categories %},
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index | plus: 1 }},
+      "name": "{{ category }}",
+      "item": "{{ site.url }}/categories/{{ category | slugify | url_encode }}/"
+    }
+    {% endfor %},
+    {
+      "@type": "ListItem",
+      "position": {{ page.categories.size | plus: 2 }},
+      "name": {{ page.title | jsonify }}
+    }
+  ]
+}
+</script>
+{% endif %}
+
+<!-- Structured Data: WebSite (for sitelinks search box) -->
+{% if page.layout == 'home' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "description": {{ site.description | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.social.name }}"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site.url }}/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{% endif %}
