@@ -1,0 +1,122 @@
+# About 페이지 데이터
+# - 경력/성과/기술 스택/교육은 이 파일만 수정하면 About 페이지에 반영됩니다.
+# - 최신 항목이 위로 오도록 작성하세요.
+# - links 의 url 이 http 로 시작하면 새 탭으로 열립니다.
+
+intro:
+  name: 이상원 · Sangwon Lee
+  headline: 대량 트래픽 속에서 데이터 정합성과 조회 성능을 함께 지키는 백엔드 엔지니어
+  summary:
+    - 롯데ON 회원/마이롯데 모듈에서 Kafka와 CDC 기반 비동기 처리, 재처리 구조로 장애 이후의 데이터를 복구하고, 집계 테이블과 캐시 구조로 조회 부하를 줄여왔습니다.
+    - 운영 문제를 지표로 정의하고, 장애 영향은 줄이면서 점진적으로 구조를 개선합니다.
+  links:
+    - name: GitHub
+      icon: fab fa-github
+      url: https://github.com/nowgnas
+    - name: Email
+      icon: fas fa-envelope
+      url: mailto:nowgnas.dvlp@gmail.com
+    - name: RSS
+      icon: fas fa-rss
+      url: /feed.xml
+
+experience:
+  - company: eBay Japan
+    role: Backend Engineer # TODO: 실제 직함으로 수정
+    team: # TODO: 소속 팀
+    start: 2026.09 # TODO: 입사 월 확인
+    end: # 비워두면 '현재'로 표시
+    summary: # TODO: 담당 서비스/도메인 한 줄 요약
+    highlights: []
+    stack: []
+
+  - company: 롯데쇼핑 e커머스사업본부 (롯데ON)
+    role: Backend Engineer
+    team: 회원·마이롯데 모듈
+    start: 2024.02
+    end: 2026.09
+    summary: 회원, 찜, 최근 본 상품, 본인인증, 멤버십 등급, 외부 연동, 배치 처리 등 고객 접점 서비스를 개발하고 운영했습니다.
+    highlights:
+      - title: 넥스트 멤버십 데이터 흐름 · 등급 산정 구조 구축
+        period: 2026.06 — 2026.08
+        metrics: [단독 설계·구축, 롤백 경로 확보]
+        description: 선행 구현 없이 정책 문서만으로 주문 이벤트 수집부터 월별 집계, 등급 산정, 조회 API까지 설계했습니다. POC 대상 산정과 정식 오픈 후 전체 산정 정책을 하나의 구조로 수용하고, 배치 파라미터로 산정 기준과 적용 월을 제어해 기존 등급 체계로 되돌릴 수 있게 했습니다.
+
+      - title: 고객 찜 데이터 외부 연동 정합성 개선
+        period: 2025.07 — 2025.08
+        metrics: [누락 주 200건 → 0건, 재처리율 99%]
+        description: WAF 장애로 대량 실패가 발생한 외부 마케팅 솔루션 연동을 Debezium CDC 기반 비동기 구조로 분리했습니다. AOP로 실패를 감지해 Kafka failure topic으로 발행하고, Retry Consumer의 지수 백오프 재시도 이후에도 남는 실패는 DB 상태와 Slack 알림으로 추적합니다.
+        links:
+          - label: Kafka Consumer 재시도 전략
+            url: /posts/consumer/
+
+      - title: 스토어 찜 랭킹 조회 구조 개선
+        period: 2025.07
+        metrics: [API 987ms → 403ms, SQL 546ms → 1.5ms]
+        description: 이벤트 트래픽에 DB CPU가 97%까지 오르던 실시간 COUNT 조회를 CDC 증분 집계 테이블과 Redis 캐시 구조로 전환했습니다. 랭킹 특성상 stale 허용 정책을 택해, 전시 모듈 장애 중에도 찜 개수 API가 정상 응답하도록 했습니다.
+        links:
+          - label: 캐시 전략 선택하기
+            url: /posts/redis-cache/
+
+      - title: 최근 본 상품 저장 처리 구조 개선
+        period: 2026.05
+        metrics: [최대 응답 30s → 3s]
+        description: 상품 상세 진입마다 호출되는 저장 API에서 COUNT 쿼리와 초과분 정리 로직을 걷어내고, 초과분 삭제를 CDC Consumer 비동기 처리로 옮겼습니다. 회원 번호를 메시지 키로 써서 처리량 확장과 회원 단위 순서 보장을 함께 확보했습니다.
+
+      - title: 비회원 최근 본 상품 도입 · 로그인 전후 데이터 통합
+        period: 2024.10 — 2024.12
+        metrics: [구매 전환율 +6.7%]
+        description: 쿠키 기반 비회원 식별값으로 조회 이력을 저장하고, 로그인 시 Kafka 이벤트로 DB가 분리된 마이롯데 모듈의 회원 데이터와 병합했습니다. 회원·비회원 처리는 Strategy Pattern으로 분리했습니다.
+        links:
+          - label: 비회원 최근 본 상품 설계하기
+            url: /posts/recent-products/
+          - label: 전략 패턴 적용하기
+            url: /posts/strategy-pattern/
+
+      - title: 휴대폰 본인인증 Server-to-Server 무중단 전환
+        metrics: [무중단 전환]
+        description: KG모빌리언스, NICE 본인인증을 Redis 플래그와 전략 패턴으로 Client Redirect 방식에서 Server-to-Server 방식으로 중단 없이 전환했습니다.
+
+      - title: AWS Bedrock 기반 로그인 이상 징후 분석 자동화
+        metrics: [주 3회 · 건당 1시간 수작업 제거]
+        description: 반복되던 로그인 이상 징후 분석을 Bedrock으로 자동화하고 Slack 기반 운영 대응 흐름을 만들었습니다.
+        links:
+          - label: 롯데ON 기술 블로그
+            url: https://techblog.lotteon.com/ai%EB%A1%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%9D%B4%EC%83%81-%EC%A7%95%ED%9B%84-%ED%83%90%EC%A7%80%ED%95%98%EA%B8%B0-aws-bedrock-%EA%B8%B0%EB%B0%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EB%B3%B4%EC%95%88-%EA%B4%80%EC%A0%9C-%EC%9E%90%EB%8F%99%ED%99%94-6016d3158cf1
+
+      - title: 제휴사 카드 발급자 갱신 배치 운영
+        metrics: [일 1만 건 · 누적 15만 건]
+        description: 파일 기반 갱신 배치에 UPSERT 멱등 처리와 날짜·파일 시퀀스 기반 선택 재처리를 적용해 문제 구간만 다시 돌릴 수 있게 했습니다.
+
+    articles:
+      - title: AI로 로그인 이상 징후 탐지하기 — AWS Bedrock 기반 로그인 보안 관제 자동화
+        url: https://techblog.lotteon.com/ai%EB%A1%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%9D%B4%EC%83%81-%EC%A7%95%ED%9B%84-%ED%83%90%EC%A7%80%ED%95%98%EA%B8%B0-aws-bedrock-%EA%B8%B0%EB%B0%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EB%B3%B4%EC%95%88-%EA%B4%80%EC%A0%9C-%EC%9E%90%EB%8F%99%ED%99%94-6016d3158cf1
+      - title: Copilot 업무 적용기
+        url: https://techblog.lotteon.com/copilot-%EC%97%85%EB%AC%B4-%EC%A0%81%EC%9A%A9%EA%B8%B0-c8810a5ee898
+    stack: [Java, Spring Boot, Spring Batch, Kafka, Avro, Debezium CDC, Redis, MySQL, AWS EKS, AWS Bedrock]
+
+education:
+  - name: 삼성 청년 SW 아카데미 (SSAFY) 8기
+    start: 2022.07
+    end: 2023.06
+    description: Spring Boot, Vue 기반 웹 서비스 팀 프로젝트 수행
+    links:
+      - label: 후기
+        url: /posts/lotte/
+  - name: 엘리스 AI 트랙 4기
+    start: 2022.01
+    end: 2022.07
+    description: AI·웹 서비스 개발 교육 수료, 2차 프로젝트 보드게임 추천 서비스로 4위
+    links:
+      - label: 수료증
+        url: /files/elice/elice_4th_track.pdf
+      - label: 프로젝트
+        url: https://github.com/nowgnas/board-game-service
+
+skills:
+  - category: Backend
+    items: [Java, Spring Boot, Spring Batch]
+  - category: Data & Messaging
+    items: [MySQL, Redis, Kafka, Avro, Debezium CDC]
+  - category: Infra & Monitoring
+    items: [AWS, EKS, Grafana, Kibana, Whatap, Datadog]
