@@ -5,7 +5,8 @@ layout: default
 {% include lang.html %} {% include origin-type.html %} {% if
 layout.tail_includes %} {% assign has_tail = true %} {% endif %}
 
-{% if page.layout == 'home' or page.layout == 'archives' %}
+{% assign single_column_layouts = 'home,archives,tags,categories,tag,category' | split: ',' %}
+{% if single_column_layouts contains page.layout %}
   {% assign single_column = true %}
 {% endif %}
 
