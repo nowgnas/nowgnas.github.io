@@ -1,3 +1,17 @@
+{% assign intro = site.data.about.intro %}
+{% capture person_id %}{{ '/about/' | absolute_url }}#person{% endcapture %}
+{% capture person_json %}
+  {
+    "@type": "Person",
+    "@id": "{{ person_id }}",
+    "name": "{{ site.social.name }}",
+    "alternateName": {{ intro.name | default: site.social.name | jsonify }},
+    "url": "{{ '/about/' | absolute_url }}",
+    {% if intro.headline %}"description": {{ intro.headline | jsonify }},{% endif %}
+    "sameAs": {{ site.social.links | jsonify }}
+  }
+{% endcapture %}
+
 <!-- Structured Data: BlogPosting Schema -->
 {% if page.layout == 'post' %}
 <script type="application/ld+json">
@@ -12,19 +26,23 @@
   "description": {{ page.description | default: page.excerpt | strip_html | truncate: 160 | jsonify }},
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.last_modified_at | default: page.lastmod | default: page.date | date_to_xmlschema }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.social.name }}",
-    "url": "{{ site.social.links[0] }}"
-  },
+  "url": "{{ page.url | absolute_url }}",
+  "author": {{ person_json | strip }},
   "publisher": {
     "@type": "Organization",
     "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
     "logo": {
       "@type": "ImageObject",
       "url": "{{ '/assets/img/favicons/favicon-96x96.png' | absolute_url }}"
     }
   },
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "{{ site.url }}/#blog",
+    "name": "{{ site.title }}"
+  },
+  {% if page.categories.size > 0 %}"articleSection": {{ page.categories | jsonify }},{% endif %}
   "wordCount": "{{ page.content | number_of_words }}",
   "inLanguage": "{{ site.lang | default: 'ko-KR' }}"
   {% if page.image %},
@@ -74,24 +92,55 @@
 </script>
 {% endif %}
 
-<!-- Structured Data: WebSite (for sitelinks search box) -->
+<!-- Structured Data: WebSite & Blog -->
 {% if page.layout == 'home' %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{{ site.title }}",
-  "url": "{{ site.url }}",
-  "description": {{ site.description | jsonify }},
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.social.name }}"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{{ site.url }}/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}",
+      "description": {{ site.description | jsonify }},
+      "inLanguage": "{{ site.lang | default: 'ko-KR' }}",
+      "author": { "@id": "{{ person_id }}" }
+    },
+    {
+      "@type": "Blog",
+      "@id": "{{ site.url }}/#blog",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}",
+      "description": {{ site.description | jsonify }},
+      "inLanguage": "{{ site.lang | default: 'ko-KR' }}",
+      "author": { "@id": "{{ person_id }}" },
+      "blogPost": [
+        {% for post in site.posts limit: 10 %}
+        {
+          "@type": "BlogPosting",
+          "headline": {{ post.title | jsonify }},
+          "url": "{{ post.url | absolute_url }}",
+          "datePublished": "{{ post.date | date_to_xmlschema }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {{ person_json | strip }}
+  ]
+}
+</script>
+{% endif %}
+
+<!-- Structured Data: ProfilePage -->
+{% if page.url == '/about/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "{{ page.url | absolute_url }}",
+  "inLanguage": "{{ site.lang | default: 'ko-KR' }}",
+  "mainEntity": {{ person_json | strip }}
 }
 </script>
 {% endif %}

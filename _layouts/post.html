@@ -89,6 +89,13 @@ tail_includes:
 
 </div> <!-- .post-meta -->
 
+{% if page.description %}
+<section class="post-summary" aria-label="요약">
+  <p class="post-summary-label">요약</p>
+  <p class="post-summary-text">{{ page.description | strip_html | escape }}</p>
+</section>
+{% endif %}
+
 {% include ads/post-top.html %}
 
 <div class="post-content">
