@@ -3,20 +3,28 @@ layout: page
 # All the Tags of posts.
 ---
 
-<div id="tags" class="d-flex flex-wrap mx-xl-2">
-  {% assign tags = '' | split: '' %}
-  {% for t in site.tags %}
-    {% assign tags = tags | push: t[0] %}
-  {% endfor %}
+{% comment %} Sort tags by post count: "0025|java" strings sort lexicographically {% endcomment %}
+{% assign tag_keys = '' | split: '' %}
+{% for t in site.tags %}
+  {% assign count = t[1] | size | prepend: '0000' | slice: -4, 4 %}
+  {% assign key = count | append: '|' | append: t[0] %}
+  {% assign tag_keys = tag_keys | push: key %}
+{% endfor %}
+{% assign tag_keys = tag_keys | sort | reverse %}
 
-  {% assign sorted_tags = tags | sort_natural %}
+<div id="tags">
+  <p class="taxonomy-summary">{{ site.tags | size }}개의 태그 · 글이 많은 순</p>
 
-  {% for t in sorted_tags %}
-    <div>
-      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
-        {{ t -}}
-        <span class="text-muted">{{ site.tags[t].size }}</span>
-      </a>
-    </div>
-  {% endfor %}
+  <ul class="tag-cloud">
+    {% for key in tag_keys %}
+      {% assign parts = key | split: '|' %}
+      {% assign name = parts | last %}
+      <li>
+        <a class="tag" href="{{ name | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+          <span class="tag-name">#{{ name }}</span>
+          <span class="tag-count">{{ parts | first | plus: 0 }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </div>

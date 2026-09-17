@@ -2,55 +2,36 @@
   Style for page Category and Tag
 */
 
-.dash {
-  margin: 0 0.5rem 0.6rem 0.5rem;
-  border-bottom: 2px dotted var(--dash-color);
-}
+.taxonomy-header {
+  padding: 3rem 0 1.5rem;
+  border-bottom: 1px solid var(--main-border-color);
 
-#page-category,
-#page-tag {
-  ul > li {
-    line-height: 1.5rem;
-    padding: 0.6rem 0;
+  .taxonomy-eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted-color);
+    border-bottom: 0;
 
-    /* dot */
-    &::before {
-      background: #999999;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      display: block;
-      content: '';
-      position: relative;
-      top: 0.6rem;
-      margin-right: 0.5rem;
+    &:hover {
+      color: var(--heading-color);
     }
+  }
 
-    /* post's title */
-    > a {
-      @extend %no-bottom-border;
+  .taxonomy-title {
+    margin: 0.5rem 0 0.5rem !important;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    word-break: keep-all;
+  }
 
-      font-size: 1.1rem;
-    }
-
-    /* post's date */
-    > span:last-child {
-      white-space: nowrap;
-    }
+  .taxonomy-count {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--text-muted-color);
   }
 }
 
-/* tag icon */
-#page-tag h1 > i {
-  font-size: 1.2rem;
-}
-
-#page-category h1 > i {
-  font-size: 1.25rem;
-}
-
-#page-category,
-#page-tag,
 #access-lastmod {
   a:hover {
     @extend %link-hover;
@@ -60,18 +41,11 @@
 }
 
 @media all and (max-width: 576px) {
-  #page-category,
-  #page-tag {
-    ul > li {
-      &::before {
-        margin: 0 0.5rem;
-      }
+  .taxonomy-header {
+    padding-top: 1.75rem;
 
-      > a {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+    .taxonomy-title {
+      font-size: 1.75rem;
     }
   }
 }

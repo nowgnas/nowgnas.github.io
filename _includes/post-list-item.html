@@ -1,0 +1,42 @@
+<!-- A post row shared by the home, category and tag lists. Requires `include.post`. -->
+
+{% assign post = include.post %}
+
+<article class="post-item">
+  <a href="{{ post.url | relative_url }}" class="post-item-link">
+    <div class="post-item-body">
+      {% if include.show_category and post.categories.size > 0 %}
+        <span class="post-item-category">{{ post.categories | first }}</span>
+      {% endif %}
+
+      <h2 class="post-item-title">
+        {% if post.pin %}<i class="fas fa-thumbtack fa-xs me-1" aria-label="{{ site.data.locales[include.lang].post.pin_prompt }}"></i>{% endif %}
+        {{ post.title }}
+      </h2>
+
+      <p class="post-item-excerpt">
+        {% if post.description %}
+          {{ post.description | strip_html | truncate: 160 | escape }}
+        {% else %}
+          {% include no-linenos.html content=post.content %}
+          {{ content | markdownify | strip_html | truncate: 160 | escape }}
+        {% endif %}
+      </p>
+
+      <div class="post-item-meta">
+        {% include datetime.html date=post.date lang=include.lang wrap='time' %}
+        {% include read-time.html content=post.content lang=include.lang %}
+      </div>
+    </div>
+
+    {% if post.image %}
+      {% assign src = post.image.path | default: post.image %}
+      {% unless src contains '//' %}
+        {% assign src = post.img_path | append: '/' | append: src | replace: '//', '/' %}
+      {% endunless %}
+      <div class="post-item-thumb">
+        <img src="{{ src }}" alt="{{ post.image.alt | default: post.title | escape }}" loading="lazy">
+      </div>
+    {% endif %}
+  </a>
+</article>

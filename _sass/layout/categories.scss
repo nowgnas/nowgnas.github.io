@@ -2,82 +2,117 @@
   Style for Tab Categories
 */
 
-%category-icon-color {
-  color: gray;
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.categories {
-  margin-bottom: 2rem;
-  border-color: var(--categories-border);
+.category-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.375rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: $base-radius;
+  transition: border-color 0.2s ease;
 
-  &.card,
-  .list-group {
-    @extend %rounded;
+  &:hover {
+    border-color: var(--btn-border-color);
   }
 
-  .card-header {
-    $radius: calc($base-radius - 1px);
+  .category-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
 
-    padding: 0.75rem;
-    border-radius: $radius;
-    border-bottom: 0;
+  .category-card-title {
+    margin: 0 !important;
+    font-size: 1.125rem;
+    font-weight: 700;
 
-    &.hide-border-bottom {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+    a {
+      color: var(--heading-color);
+      border-bottom: 0;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
     }
   }
 
-  i {
-    @extend %category-icon-color;
-
-    font-size: 86%; /* fontawesome icons */
+  .category-card-count {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted-color);
+    font-variant-numeric: tabular-nums;
   }
 
-  .list-group-item {
-    border-left: none;
-    border-right: none;
-    padding-left: 2rem;
+  .category-card-posts {
+    flex: 1 1 auto;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
 
-    &:first-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+    li {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.875rem;
+      line-height: 1.9;
     }
 
-    &:last-child {
+    a {
+      color: var(--post-list-text-color);
+      border-bottom: 0;
+
+      &:hover {
+        color: var(--heading-color);
+      }
+    }
+  }
+
+  .category-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--main-border-color);
+    font-size: 0.8125rem;
+
+    a {
       border-bottom: 0;
     }
   }
-} /* .categories */
 
-.category-trigger {
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
-  text-align: center;
-  color: #6c757d !important;
+  .category-card-sub {
+    padding: 0.125rem 0.625rem;
+    color: var(--text-color);
+    background: var(--tag-bg);
+    border-radius: 999px;
 
-  i {
-    position: relative;
-    height: 0.7rem;
-    width: 1rem;
-    transition: transform 300ms ease;
+    &:hover {
+      background: var(--tag-hover);
+    }
   }
 
-  &:hover {
-    i {
-      color: var(--categories-icon-hover-color);
+  .category-card-more {
+    margin-left: auto;
+    font-weight: 600;
+    color: var(--text-muted-color);
+
+    &:hover {
+      color: var(--heading-color);
     }
   }
 }
 
-/* only works on desktop */
-@media (hover: hover) {
-  .category-trigger:hover {
-    background-color: var(--categories-hover-bg);
+@media all and (max-width: 576px) {
+  .category-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
-}
-
-.rotate {
-  transform: rotate(-90deg);
 }
