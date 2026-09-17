@@ -1,0 +1,37 @@
+<!-- Author profile shown at the end of a post -->
+
+{% assign intro = site.data.about.intro %}
+
+<section class="author-card" aria-label="작성자">
+  {% if site.avatar %}
+    <img
+      class="author-card-avatar"
+      src="{{ site.avatar | relative_url }}"
+      alt="{{ site.social.name }}"
+      width="56"
+      height="56"
+    >
+  {% endif %}
+
+  <div class="author-card-body">
+    <p class="author-card-name">
+      <a href="{{ '/about/' | relative_url }}">{{ intro.name | default: site.social.name }}</a>
+    </p>
+    {% if intro.headline %}
+      <p class="author-card-desc">{{ intro.headline }}</p>
+    {% endif %}
+
+    <div class="author-card-links">
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      {% for link in intro.links %}
+        {% unless link.url contains 'mailto:' %}
+          <a
+            href="{{ link.url | relative_url }}"
+            {% if link.url contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}
+            >{{ link.name }}</a
+          >
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -9,7 +9,7 @@ layout.tail_includes %} {% assign has_tail = true %} {% endif %}
   {% assign single_column = true %}
 {% endif %}
 
-<div class="row{% unless has_tail %} mb-5{% endunless %}{% if single_column %} single-column{% endif %}">
+<div class="row layout-{{ page.layout }}{% unless has_tail %} mb-5{% endunless %}{% if single_column %} single-column{% endif %}">
   <!-- core -->
   <div id="core-wrapper" class="col-12{% unless single_column %} col-lg-11 col-xl-9 pe-xl-4{% endunless %}">
     {% capture padding %} {% unless page.layout == 'home' %}px-1{% endunless %}
@@ -32,10 +32,12 @@ layout.tail_includes %} {% assign has_tail = true %} {% endif %}
   {% unless single_column %}
   <!-- panel -->
   <div id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+    {% unless page.layout == 'post' %}
     <div class="access">
       {% include update-list.html lang=lang %} {% include trending-tags.html
       lang=lang %}
     </div>
+    {% endunless %}
 
     {% for _include in layout.panel_includes %} {% assign _include_path =
     _include | append: '.html' %} {% include {{ _include_path }} lang=lang %} {%
@@ -46,7 +48,7 @@ layout.tail_includes %} {% assign has_tail = true %} {% endif %}
 
 <!-- tail -->
 {% if has_tail %}
-<div class="row">
+<div class="row layout-{{ page.layout }}">
   <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-3 pe-xl-4 mt-5">
     {% for _include in layout.tail_includes %} {% assign _include_path =
     _include | append: '.html' %} {% include {{ _include_path }} lang=lang %} {%
