@@ -3,142 +3,127 @@
 */
 
 #archives {
-  letter-spacing: 0.03rem;
-
-  $timeline-width: 4px;
-
-  %timeline {
-    content: '';
-    width: $timeline-width;
-    position: relative;
-    float: left;
-    background-color: var(--timeline-color);
+  .archives-summary {
+    margin: -0.5rem 0 2.5rem;
+    font-size: 0.9375rem;
+    color: var(--text-muted-color);
   }
 
-  .year {
-    height: 3.5rem;
-    font-size: 1.5rem;
-    position: relative;
-    left: 2px;
-    margin-left: -$timeline-width;
-
-    &::before {
-      @extend %timeline;
-
-      height: 72px;
-      left: 79px;
-      bottom: 16px;
-    }
-
-    &:first-child::before {
-      @extend %timeline;
-
-      height: 32px;
-      top: 24px;
-    }
-
-    /* Year dot */
-    &::after {
-      content: '';
-      display: inline-block;
-      position: relative;
-      border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      left: 21.5px;
-      border: 3px solid;
-      background-color: var(--timeline-year-dot-color);
-      border-color: var(--timeline-node-bg);
-      box-shadow: 0 0 2px 0 #c2c6cc;
-      z-index: 1;
-    }
+  .archive-year {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 0 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--main-border-color);
   }
 
-  ul {
-    li {
-      font-size: 1.1rem;
-      line-height: 3rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-      &:nth-child(odd) {
-        background-color: var(--main-bg, #ffffff);
-        background-image: linear-gradient(
-          to left,
-          #ffffff,
-          #fbfbfb,
-          #fbfbfb,
-          #fbfbfb,
-          #ffffff
-        );
-      }
-
-      &::before {
-        @extend %timeline;
-
-        top: 0;
-        left: 77px;
-        height: 3.1rem;
-      }
-    }
-
-    &:last-child li:last-child::before {
-      height: 1.5rem;
-    }
-  } /* #archives ul */
-
-  .date {
-    white-space: nowrap;
-    display: inline-block;
-    position: relative;
-    right: 0.5rem;
-
-    &.month {
-      width: 1.4rem;
-      text-align: center;
-    }
-
-    &.day {
-      font-size: 85%;
-      font-family: inherit;
-    }
+  .archive-year-header {
+    position: sticky;
+    top: calc(#{$topbar-height} + 1.5rem);
+    align-self: start;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
   }
 
-  a {
-    /* post title in Archvies */
-    margin-left: 2.5rem;
-    position: relative;
-    top: 0.1rem;
+  .archive-year-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .archive-year-count {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted-color);
+  }
+
+  .archive-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .archive-item a {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    margin: 0 -0.75rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border-bottom: 0;
+    color: var(--text-color);
+    transition: background-color 0.15s ease;
 
     &:hover {
-      border-bottom: none;
-    }
+      background-color: var(--nav-hover-bg);
 
-    &::before {
-      /* the dot before post title */
-      content: '';
-      display: inline-block;
-      position: relative;
-      border-radius: 50%;
-      width: 8px;
-      height: 8px;
-      float: left;
-      top: 1.35rem;
-      left: 71px;
-      background-color: var(--timeline-node-bg);
-      box-shadow: 0 0 3px 0 #c2c6cc;
-      z-index: 1;
+      .archive-title {
+        color: var(--heading-color);
+      }
     }
+  }
+
+  .archive-date {
+    flex-shrink: 0;
+    width: 3rem;
+    font-family: $font-family-mono;
+    font-size: 0.8125rem;
+    color: var(--text-muted-color);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .archive-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .archive-category {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    color: var(--text-muted-color);
   }
 } /* #archives */
 
 @media all and (max-width: 576px) {
   #archives {
-    margin-top: -1rem;
+    .archive-year {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+      padding: 1.5rem 0;
+    }
 
-    ul {
-      letter-spacing: 0;
+    .archive-year-header {
+      position: static;
+    }
+
+    .archive-item a {
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+    }
+
+    .archive-title {
+      flex-basis: 100%;
+      order: 2;
+      white-space: normal;
+    }
+
+    .archive-category {
+      order: 1;
     }
   }
+}
+
+.single-column h1.dynamic-title {
+  margin-top: 3rem;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
 }
