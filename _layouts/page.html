@@ -6,7 +6,7 @@ layout: default
 layout.tail_includes %} {% assign has_tail = true %} {% endif %}
 
 {% assign single_column_layouts = 'home,archives,tags,categories,tag,category' | split: ',' %}
-{% if single_column_layouts contains page.layout %}
+{% if single_column_layouts contains page.layout or page.url == '/about/' %}
   {% assign single_column = true %}
 {% endif %}
 
@@ -23,7 +23,9 @@ layout.tail_includes %} {% assign has_tail = true %} {% endif %}
       page.collection == 'tabs' %} {% assign tab_key = page.title | downcase %}
       {% assign title = site.data.locales[lang].tabs[tab_key] | default:
       page.title %}
+      {% unless page.url == '/about/' %}
       <h1 class="dynamic-title">{{ title }}</h1>
+      {% endunless %}
       <div class="post-content">{{ _content }}</div>
       {% else %} {{ _content }} {% endif %}
     </div>
