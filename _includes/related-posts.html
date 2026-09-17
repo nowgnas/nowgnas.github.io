@@ -46,14 +46,6 @@ endunless %} {% endif %} {% endfor %} {% endif %}
     <li>
       <a href="{{ post.url | relative_url }}" class="related-item">
         <span class="related-item-title">{{ post.title }}</span>
-        <span class="related-item-excerpt">
-          {% if post.description %}
-            {{ post.description | strip_html | truncate: 120 | escape }}
-          {% else %}
-            {% include no-linenos.html content=post.content %}
-            {{ content | markdownify | strip_html | truncate: 120 | escape }}
-          {% endif %}
-        </span>
         {% include datetime.html date=post.date class="related-item-date" lang=include.lang wrap='time' %}
       </a>
     </li>
