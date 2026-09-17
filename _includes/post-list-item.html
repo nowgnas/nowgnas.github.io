@@ -14,15 +14,6 @@
         {{ post.title }}
       </h2>
 
-      <p class="post-item-excerpt">
-        {% if post.description %}
-          {{ post.description | strip_html | truncate: 160 | escape }}
-        {% else %}
-          {% include no-linenos.html content=post.content %}
-          {{ content | markdownify | strip_html | truncate: 160 | escape }}
-        {% endif %}
-      </p>
-
       <div class="post-item-meta">
         {% include datetime.html date=post.date lang=include.lang wrap='time' %}
         {% include read-time.html content=post.content lang=include.lang %}

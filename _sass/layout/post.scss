@@ -443,14 +443,6 @@ $post-content-width: 740px;
     color: var(--heading-color);
   }
 
-  .related-item-excerpt {
-    @extend %text-clip;
-
-    -webkit-line-clamp: 1;
-    font-size: 0.875rem;
-    color: var(--post-list-text-color);
-  }
-
   .related-item-date {
     font-size: 0.8125rem;
     font-style: normal;
