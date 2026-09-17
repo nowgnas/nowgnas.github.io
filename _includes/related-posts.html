@@ -36,31 +36,29 @@ endunless %} {% endif %} {% endfor %} {% endif %}
 {% include ads/multiplex.html %}
 
 {% if index_list.size > 0 %}
-<div id="related-posts" class="mb-2 mb-sm-4">
-  <h3 class="pt-2 mb-4 ms-1" data-toc-skip>
+<section id="related-posts" aria-labelledby="related-posts-title">
+  <h2 class="related-posts-title" id="related-posts-title" data-toc-skip>
     {{ site.data.locales[include.lang].post.relate_posts }}
-  </h3>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+  </h2>
+  <ul class="related-list">
     {% for entry in index_list %} {% assign index = entry | plus: 0 %} {% assign
     post = site.posts[index] %}
-    <div class="col">
-      <a href="{{ post.url | relative_url }}" class="card post-preview h-100">
-        <div class="card-body">
-          {% include datetime.html date=post.date class="small"
-          lang=include.lang %}
-          <h4 class="pt-0 my-2" data-toc-skip>{{ post.title }}</h4>
-          <div class="text-muted small">
-            <p>
-              {% include no-linenos.html content=post.content %} {{ content |
-              markdownify | strip_html | truncate: 200 | escape }}
-            </p>
-          </div>
-        </div>
+    <li>
+      <a href="{{ post.url | relative_url }}" class="related-item">
+        <span class="related-item-title">{{ post.title }}</span>
+        <span class="related-item-excerpt">
+          {% if post.description %}
+            {{ post.description | strip_html | truncate: 120 | escape }}
+          {% else %}
+            {% include no-linenos.html content=post.content %}
+            {{ content | markdownify | strip_html | truncate: 120 | escape }}
+          {% endif %}
+        </span>
+        {% include datetime.html date=post.date class="related-item-date" lang=include.lang wrap='time' %}
       </a>
-    </div>
+    </li>
     {% endfor %}
-  </div>
-  <!-- .card-deck -->
-</div>
+  </ul>
+</section>
 <!-- #related-posts -->
 {% endif %}

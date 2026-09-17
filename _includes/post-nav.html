@@ -1,37 +1,21 @@
-<!-- Navigation buttons at the bottom of the post. -->
+<!-- Navigation links at the bottom of the post. -->
 
-<div class="post-navigation d-flex justify-content-between">
+<nav class="post-navigation" aria-label="이전 글과 다음 글">
   {% if page.previous.url %}
-    <a
-      href="{{ site.baseurl }}{{ page.previous.url }}"
-      class="btn btn-outline-primary"
-      prompt="{{ site.data.locales[include.lang].post.button.previous }}"
-    >
-      <p>{{ page.previous.title }}</p>
+    <a href="{{ page.previous.url | relative_url }}" class="post-nav-item post-nav-prev" rel="prev">
+      <span class="post-nav-label"><i class="fas fa-arrow-left fa-xs"></i> {{ site.data.locales[include.lang].post.button.previous }}</span>
+      <span class="post-nav-title">{{ page.previous.title }}</span>
     </a>
   {% else %}
-    <div
-      class="btn btn-outline-primary disabled"
-      prompt="{{ site.data.locales[include.lang].post.button.previous }}"
-    >
-      <p>-</p>
-    </div>
+    <span class="post-nav-item post-nav-empty"></span>
   {% endif %}
 
   {% if page.next.url %}
-    <a
-      href="{{ site.baseurl }}{{page.next.url}}"
-      class="btn btn-outline-primary"
-      prompt="{{ site.data.locales[include.lang].post.button.next }}"
-    >
-      <p>{{ page.next.title }}</p>
+    <a href="{{ page.next.url | relative_url }}" class="post-nav-item post-nav-next" rel="next">
+      <span class="post-nav-label">{{ site.data.locales[include.lang].post.button.next }} <i class="fas fa-arrow-right fa-xs"></i></span>
+      <span class="post-nav-title">{{ page.next.title }}</span>
     </a>
   {% else %}
-    <div
-      class="btn btn-outline-primary disabled"
-      prompt="{{ site.data.locales[include.lang].post.button.next }}"
-    >
-      <p>-</p>
-    </div>
+    <span class="post-nav-item post-nav-empty"></span>
   {% endif %}
-</div>
+</nav>
