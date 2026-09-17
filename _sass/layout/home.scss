@@ -2,93 +2,186 @@
   Style for Homepage
 */
 
-#post-list {
-  margin-top: 2rem;
+$home-content-width: 760px;
 
-  a.card-wrapper {
-    display: block;
+.single-column #core-wrapper > .post {
+  max-width: $home-content-width;
+  margin: 0 auto;
+}
+
+.home-hero {
+  padding: 2.5rem 0 2rem;
+
+  .home-hero-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.03em;
+    word-break: keep-all;
+  }
+
+  .home-hero-desc {
+    max-width: 36rem;
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--post-list-text-color);
+  }
+
+  .home-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted-color);
+
+    a {
+      font-weight: 600;
+      color: var(--heading-color);
+      border-bottom: 1px solid var(--link-underline-color);
+
+      &:hover {
+        @extend %link-hover;
+      }
+    }
+  }
+}
+
+.home-tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 -0.25rem;
+  padding: 0.25rem;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--main-border-color);
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-tab {
+    flex-shrink: 0;
+    padding: 0.5rem 0.875rem;
+    margin-bottom: -0.3125rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--nav-muted-color);
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
 
     &:hover {
-      text-decoration: none;
+      color: var(--nav-active-color);
     }
 
-    &:not(:last-child) {
-      margin-bottom: 1.25rem;
+    &.active {
+      font-weight: 700;
+      color: var(--nav-active-color);
+      border-bottom-color: var(--nav-active-color);
     }
   }
 
-  .card {
-    %img-radius {
-      border-radius: $base-radius $base-radius 0 0;
-    }
+  .home-tab-more {
+    margin-left: auto;
+    font-size: 0.875rem;
+  }
+}
 
-    .preview-img {
-      height: 10rem;
+#post-list {
+  margin-top: 0.5rem;
 
-      @extend %img-radius;
+  .post-item {
+    border-bottom: 1px solid var(--main-border-color);
+  }
 
-      img {
-        width: 100%;
-        height: 100%;
-        -o-object-fit: cover;
-        object-fit: cover;
+  .post-item-link {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.75rem 0;
+    color: inherit;
 
-        @extend %img-radius;
+    &:hover {
+      .post-item-title {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
       }
     }
+  }
 
-    .card-body {
-      min-height: 10.5rem;
-      padding: 1rem;
+  .post-item-body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 
-      .card-title {
-        @extend %text-clip;
+  .post-item-category {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted-color);
+  }
 
-        font-size: 1.25rem;
-      }
+  .post-item-title {
+    @extend %text-clip;
 
-      %muted {
-        color: var(--text-muted-color) !important;
-      }
+    margin: 0 0 0.5rem;
+    font-size: 1.3125rem;
+    font-weight: 700;
+    line-height: 1.45;
+  }
 
-      .card-text.post-content {
-        @extend %muted;
+  .post-item-excerpt {
+    @extend %text-clip;
 
-        p {
-          @extend %text-clip;
+    margin: 0 0 0.875rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--post-list-text-color);
+  }
 
-          line-height: 1.5;
-          margin: 0;
-        }
-      }
+  .post-item-meta {
+    display: flex;
+    align-items: center;
+    font-size: 0.8125rem;
+    color: var(--text-muted-color);
 
-      .post-meta {
-        @extend %muted;
+    em,
+    time {
+      @extend %normal-font-style;
 
-        i {
-          &:not(:first-child) {
-            margin-left: 1.5rem;
-          }
-        }
+      color: inherit;
+    }
 
-        em {
-          @extend %normal-font-style;
+    > * + *::before {
+      content: '·';
+      margin: 0 0.5rem;
+    }
+  }
 
-          color: inherit;
-        }
+  .post-item-thumb {
+    flex-shrink: 0;
+    width: 10rem;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: $base-radius;
+    background: var(--tag-bg);
 
-        > div:first-child {
-          display: block;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 } /* #post-list */
 
 .pagination {
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 2.5rem !important;
   color: var(--btn-patinator-text-color);
   font-family: inherit;
 
@@ -98,122 +191,80 @@
 
   .page-item {
     .page-link {
-      color: inherit;
-      width: 2.5rem;
-      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
       padding: 0;
-      display: -webkit-box;
-      -webkit-box-pack: center;
-      -webkit-box-align: center;
-      border-radius: 50%;
-      border: 1px solid var(--btn-paginator-border-color);
-      background-color: var(--button-bg);
+      font-size: 0.875rem;
+      color: inherit;
+      border: 0;
+      border-radius: 0.5rem !important;
+      background-color: transparent;
+      box-shadow: none;
 
       &:hover {
-        background-color: var(--btn-paginator-hover-color);
+        background-color: var(--nav-hover-bg);
       }
     }
 
-    &.active {
-      .page-link {
-        background-color: var(--btn-paginator-hover-color);
-        color: var(--btn-text-color);
-      }
+    &.active .page-link {
+      font-weight: 700;
+      color: var(--main-bg);
+      background-color: var(--heading-color);
     }
 
     &.disabled {
       cursor: not-allowed;
 
       .page-link {
-        color: rgba(108, 117, 125, 0.57);
-        border-color: var(--btn-paginator-border-color);
-        background-color: var(--button-bg);
+        color: var(--text-muted-color);
+        opacity: 0.5;
       }
-    }
-
-    &:first-child .page-link,
-    &:last-child .page-link {
-      border-radius: 50%;
     }
   } /* .page-item */
+
+  .page-index {
+    display: none;
+  }
 } /* .pagination */
 
-/* Tablet */
-@media all and (min-width: 768px) {
-  #post-list {
-    %img-radius {
-      border-radius: 0 $base-radius $base-radius 0;
-    }
+@media all and (max-width: 576px) {
+  .home-hero {
+    padding: 1.75rem 0 1.5rem;
 
-    .card {
-      .preview-img {
-        width: 20rem;
-        height: 11.5rem; // can hold 2 lines each for title and content
-      }
-
-      .card-body {
-        min-height: 10.75rem;
-        width: 60%;
-        padding: 1.75rem 1.75rem 1.25rem 1.75rem;
-
-        .card-text {
-          display: inherit !important;
-        }
-
-        .post-meta {
-          i {
-            &:not(:first-child) {
-              margin-left: 1.75rem;
-            }
-          }
-        }
-      }
+    .home-hero-title {
+      font-size: 1.25rem;
     }
   }
-}
 
-/* Hide SideBar and TOC */
-@media all and (max-width: 830px) {
-  .pagination {
-    justify-content: space-evenly;
-
-    .page-item {
-      &:not(:first-child):not(:last-child) {
-        display: none;
-      }
-    }
-  }
-}
-
-/* Sidebar is visible */
-@media all and (min-width: 831px) {
-  #post-list {
-    margin-top: 2.5rem;
+  .home-tabs .home-tab-more {
+    margin-left: 0;
   }
 
-  .pagination {
-    font-size: 0.85rem;
-
-    .page-item {
-      &:not(:last-child) {
-        margin-right: 0.7rem;
-      }
-
-      .page-link {
-        width: 2rem;
-        height: 2rem;
-      }
-    }
-
-    .page-index {
-      display: none;
-    }
-  } /* .pagination */
-}
-
-/* Panel is visible */
-@media all and (min-width: 1200px) {
   #post-list {
-    padding-right: 0.5rem;
+    .post-item-link {
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem 0;
+    }
+
+    .post-item-title {
+      font-size: 1.125rem;
+    }
+
+    .post-item-thumb {
+      width: 5.5rem;
+      aspect-ratio: 1;
+    }
+  }
+
+  .pagination .page-item:not(:first-child):not(:last-child) {
+    display: none;
+  }
+
+  .pagination .page-index {
+    display: block;
   }
 }

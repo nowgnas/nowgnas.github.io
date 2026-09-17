@@ -40,67 +40,78 @@ refactor: true
   {% endfor %}
 {% endif %}
 
+{% assign intro = site.data.about.intro %}
+
+{% if paginator.page == 1 %}
+<section class="home-hero">
+  <h1 class="home-hero-title">{{ intro.headline | default: site.tagline }}</h1>
+  <p class="home-hero-desc">{{ site.description }}</p>
+  <div class="home-hero-meta">
+    <a href="{{ '/about/' | relative_url }}">{{ intro.name | default: site.social.name }}</a>
+    <span>{{ site.posts | size }} posts</span>
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+  </div>
+</section>
+{% endif %}
+
+{% comment %} Sort categories by post count: "0025|web" strings sort lexicographically {% endcomment %}
+{% assign category_keys = '' | split: '' %}
+{% for category in site.categories %}
+  {% assign count = category[1] | size | prepend: '0000' | slice: -4, 4 %}
+  {% assign key = count | append: '|' | append: category[0] %}
+  {% assign category_keys = category_keys | push: key %}
+{% endfor %}
+{% assign category_keys = category_keys | sort | reverse %}
+
+<nav class="home-tabs" aria-label="Categories">
+  <a href="{{ '/' | relative_url }}" class="home-tab active" aria-current="page">전체</a>
+  {% for key in category_keys limit: 6 %}
+    {% assign name = key | split: '|' | last %}
+    <a href="{{ name | slugify | url_encode | prepend: '/categories/' | append: '/' | relative_url }}" class="home-tab">{{ name }}</a>
+  {% endfor %}
+  <a href="{{ '/categories/' | relative_url }}" class="home-tab home-tab-more">모든 카테고리 <i class="fas fa-arrow-right fa-xs"></i></a>
+</nav>
+
 <div id="post-list">
   {% for post in posts %}
-    <a href="{{ post.url | relative_url }}" class="card-wrapper">
-      <div class="card post-preview flex-md-row-reverse">
-        {% if post.image %}
-          {% if post.image.lqip %}
-            {% capture lqip %}lqip="{{ post.image.lqip }}"{% endcapture %}
+    <article class="post-item">
+      <a href="{{ post.url | relative_url }}" class="post-item-link">
+        <div class="post-item-body">
+          {% if post.categories.size > 0 %}
+            <span class="post-item-category">{{ post.categories | first }}</span>
           {% endif %}
 
+          <h2 class="post-item-title">
+            {% if post.pin %}<i class="fas fa-thumbtack fa-xs me-1" aria-label="{{ site.data.locales[lang].post.pin_prompt }}"></i>{% endif %}
+            {{ post.title }}
+          </h2>
+
+          <p class="post-item-excerpt">
+            {% if post.description %}
+              {{ post.description | strip_html | truncate: 160 | escape }}
+            {% else %}
+              {% include no-linenos.html content=post.content %}
+              {{ content | markdownify | strip_html | truncate: 160 | escape }}
+            {% endif %}
+          </p>
+
+          <div class="post-item-meta">
+            {% include datetime.html date=post.date lang=lang wrap='time' %}
+            {% include read-time.html content=post.content lang=lang %}
+          </div>
+        </div>
+
+        {% if post.image %}
           {% assign src = post.image.path | default: post.image %}
           {% unless src contains '//' %}
             {% assign src = post.img_path | append: '/' | append: src | replace: '//', '/' %}
           {% endunless %}
-
-          {% assign alt = post.image.alt | default: 'Preview Image' %}
-
-          <img src="{{ src }}" w="15" h="8" alt="{{ alt }}" {{ lqip }}>
+          <div class="post-item-thumb">
+            <img src="{{ src }}" alt="{{ post.image.alt | default: post.title | escape }}" loading="lazy">
+          </div>
         {% endif %}
-
-        <div class="card-body d-flex flex-column">
-          <h1 class="card-title my-2 mt-md-0">
-            {{ post.title }}
-          </h1>
-
-          <div class="card-text post-content mt-0 mb-2">
-            <p>
-              {% include no-linenos.html content=post.content %}
-              {{ content | markdownify | strip_html | truncate: 200 | escape }}
-            </p>
-          </div>
-
-          <div class="post-meta flex-grow-1 d-flex align-items-end">
-            <div class="me-auto">
-              <!-- posted date -->
-              <i class="far fa-calendar fa-fw me-1"></i>
-              {% include datetime.html date=post.date lang=lang %}
-
-              <!-- categories -->
-              {% if post.categories.size > 0 %}
-                <i class="far fa-folder-open fa-fw me-1"></i>
-                <span class="categories">
-                  {% for category in post.categories %}
-                    {{ category }}
-                    {%- unless forloop.last -%},{%- endunless -%}
-                  {% endfor %}
-                </span>
-              {% endif %}
-            </div>
-
-            {% if post.pin %}
-              <div class="pin ms-1">
-                <i class="fas fa-thumbtack fa-fw"></i>
-                <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
-              </div>
-            {% endif %}
-          </div>
-          <!-- .post-meta -->
-        </div>
-        <!-- .card-body -->
-      </div>
-    </a>
+      </a>
+    </article>
   {% endfor %}
 </div>
 <!-- #post-list -->

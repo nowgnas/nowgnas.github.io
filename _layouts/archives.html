@@ -5,32 +5,35 @@ layout: page
 
 {% include lang.html %}
 
-{% assign df_strftime_m = site.data.locales[lang].df.archives.strftime | default: '/ %m' %}
-{% assign df_dayjs_m = site.data.locales[lang].df.archives.dayjs | default: '/ MM' %}
+{% assign posts_by_year = site.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}
 
-<div id="archives" class="pl-xl-3">
+<div id="archives">
+  <p class="archives-summary">
+    {{ site.posts | size }}개의 글 · {{ posts_by_year.size }}년간의 기록
+  </p>
 
-{% for post in site.posts %}
-  {% capture cur_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+  {% for year in posts_by_year %}
+    <section class="archive-year" aria-labelledby="archive-{{ year.name }}">
+      <header class="archive-year-header">
+        <h2 class="archive-year-title" id="archive-{{ year.name }}" data-toc-skip>{{ year.name }}</h2>
+        <span class="archive-year-count">{{ year.items | size }}</span>
+      </header>
 
-  {% if cur_year != last_year %}
-    {% unless forloop.first %}</ul>{% endunless %}
-    <div class="year lead">{{ cur_year }}</div>
-    <ul class="list-unstyled">
-    {% assign last_year = cur_year %}
-  {% endif %}
-
-  <li>
-  {% assign ts = post.date | date: '%s' %}
-    <span class="date day" data-ts="{{ ts }}" data-df="DD">{{ post.date | date: "%d" }}</span>
-    <span class="date month small text-muted ms-1" data-ts="{{ ts }}" data-df="{{ df_dayjs_m }}">
-      {{ post.date | date: df_strftime_m }}
-    </span>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-  </li>
-
-  {% if forloop.last %}</ul>{% endif %}
-
-{% endfor %}
-
+      <ol class="archive-list">
+        {% for post in year.items %}
+          <li class="archive-item">
+            <a href="{{ post.url | relative_url }}">
+              <time class="archive-date" datetime="{{ post.date | date_to_xmlschema }}">
+                {{- post.date | date: '%m.%d' -}}
+              </time>
+              <span class="archive-title">{{ post.title }}</span>
+              {% if post.categories.size > 0 %}
+                <span class="archive-category">{{ post.categories | first }}</span>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endfor %}
 </div>
