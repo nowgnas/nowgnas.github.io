@@ -14,12 +14,11 @@ layout: compress
   {% include head.html %}
 
   <body>
-    {% include sidebar.html lang=lang %}
+    {% include topbar.html lang=lang %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
       <div id="main" class="container px-xxl-5">
-        {% include topbar.html lang=lang %} {{ content }} {% include
-        search-results.html lang=lang %}
+        {{ content }} {% include search-results.html lang=lang %}
       </div>
     </div>
 

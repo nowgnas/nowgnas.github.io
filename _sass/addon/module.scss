@@ -6,8 +6,9 @@
 
 %heading {
   color: var(--heading-color);
-  font-weight: 400;
+  font-weight: 700;
   font-family: $font-family-heading;
+  letter-spacing: -0.02em;
 }
 
 %section {
@@ -55,8 +56,8 @@
 }
 
 %link-hover {
-  color: #d2603a !important;
-  border-bottom: 1px solid #d2603a;
+  color: var(--heading-color) !important;
+  border-bottom: 1px solid var(--heading-color);
   text-decoration: none;
 }
 
@@ -104,14 +105,6 @@
     padding: 0;
     color: #6d6c6c;
   }
-}
-
-%sidebar-links {
-  color: rgba(117, 117, 117, 0.9);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 %text-clip {
