@@ -60,6 +60,27 @@ h1 + .post-meta {
   }
 }
 
+.post-summary {
+  margin: 2rem 0 0.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: $base-radius;
+  background-color: var(--nav-hover-bg);
+
+  .post-summary-label {
+    margin-bottom: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted-color);
+  }
+
+  .post-summary-text {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--heading-color);
+  }
+}
+
 .post-tail-wrapper {
   margin-top: 6rem;
   border-bottom: 1px double var(--main-border-color);

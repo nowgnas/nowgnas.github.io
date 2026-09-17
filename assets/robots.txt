@@ -14,4 +14,31 @@ Allow: /
 User-agent: Mediapartners-Google
 Allow: /
 
+# AI search & answer engines (GEO): allow crawling so posts can be cited
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# LLM-friendly site index: {{ '/llms.txt' | absolute_url }}
+
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
