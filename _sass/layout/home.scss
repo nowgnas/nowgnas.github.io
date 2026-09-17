@@ -128,10 +128,19 @@ $home-content-width: 760px;
   .post-item-title {
     @extend %text-clip;
 
-    margin: 0 0 0.625rem;
+    margin: 0 0 0.5rem;
     font-size: 1.3125rem;
     font-weight: 700;
     line-height: 1.45;
+  }
+
+  .post-item-excerpt {
+    @extend %text-clip;
+
+    margin: 0 0 0.875rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--post-list-text-color);
   }
 
   .post-item-meta {
