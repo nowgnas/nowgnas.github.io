@@ -19,3 +19,6 @@ package-lock.json
 .vscode
 
 # Misc
+
+# macOS metadata
+.DS_Store
