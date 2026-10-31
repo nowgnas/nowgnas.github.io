@@ -168,6 +168,10 @@ $post-content-width: 740px;
     border-radius: $base-radius;
   }
 
+  .img-link {
+    max-width: 100%;
+  }
+
   .highlight {
     border-radius: 0 0 $base-radius $base-radius;
   }
