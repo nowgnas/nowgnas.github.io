@@ -45,6 +45,8 @@ social:
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
+# HTML 파일 인증 식별자와 메타 태그 인증 토큰은 별개입니다.
+# 아래 값은 Search Console의 HTML 태그 원본과 대조한 뒤에만 변경하세요.
 google_site_verification: 163033503fee2eac # Google Search Console verification
 
 # ↑ --------------------------
@@ -138,6 +140,15 @@ collections:
     sort_by: order
 
 defaults:
+  # 인증 파일은 그대로 제공하되 검색용 사이트맵에서는 제외합니다.
+  - scope:
+      path: google163033503fee2eac.html
+    values:
+      sitemap: false
+  - scope:
+      path: naver8efd916cf319346a6849b4757350825d.html
+    values:
+      sitemap: false
   - scope:
       path: "" # An empty string here means all files in the project
       type: posts

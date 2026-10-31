@@ -48,6 +48,13 @@
   assign seo_tags = seo_tags | replace: target, replacement %} {% endunless %}
   {% endif %} {{ seo_tags }}
 
+  {% unless page.image %}
+    {% if site.image %}
+      <meta property="og:image" content="{{ site.image | absolute_url | escape }}" />
+      <meta name="twitter:image" content="{{ site.image | absolute_url | escape }}" />
+    {% endif %}
+  {% endunless %}
+
   <title>
     {%- unless page.layout == 'home' -%} {{ page.title | append: ' | ' }} {%-
     endunless -%} {{ site.title }}
